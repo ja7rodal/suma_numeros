@@ -4,6 +4,7 @@ set :session_secret, 'makers'
 enable :sessions
 
 get '/' do
+  @conteo = session[:conteo]
   erb:index
 
 end
@@ -15,5 +16,6 @@ end
 
 
 get '/reset' do
-  session[:conteo] = 0
+  session.clear
+  redirect '/'
 end

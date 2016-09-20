@@ -6,7 +6,13 @@
 </head>
 
 <body>
-  <h1>Mi cuenta es : <%= session[:conteo] %>
+  <h1>Mi cuenta es :
+      <% if @conteo %>
+      <%= @conteo %>
+      <% else %>
+      <%= 0 %>
+      <% session[:conteo] = 0 %>
+      <% end %>
   </h1>
   <form action="/" method="post">
       <br>
